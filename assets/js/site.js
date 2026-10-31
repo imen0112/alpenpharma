@@ -247,31 +247,3 @@
   });
 })();
 
-// Coral cursor over the maps and the footer logo (mouse only)
-(function () {
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  var zones = document.querySelectorAll('.mcard, .mdetail__img, .phero:has(.map), .site-footer .logo, .hero, .cta, .phero:has(img[src*="matterhorn"], img[src*="alps"])');
-  if (!zones.length) return;
-  var c = document.createElement('div');
-  c.className = 'cursor';
-  c.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(c);
-  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var x = 0, y = 0, cx = 0, cy = 0, raf = 0;
-  function loop() {
-    cx += (x - cx) * (still ? 1 : 0.22);
-    cy += (y - cy) * (still ? 1 : 0.22);
-    c.style.transform = 'translate(' + cx + 'px,' + cy + 'px)';
-    raf = Math.abs(x - cx) + Math.abs(y - cy) > 0.3 ? requestAnimationFrame(loop) : 0;
-  }
-  document.addEventListener('mousemove', function (e) {
-    x = e.clientX; y = e.clientY;
-    if (!raf) raf = requestAnimationFrame(loop);
-  }, { passive: true });
-  zones.forEach(function (z) {
-    z.addEventListener('mouseenter', function (e) { cx = x = e.clientX; cy = y = e.clientY; loop(); c.classList.add('on'); });
-    z.addEventListener('mouseleave', function () { c.classList.remove('on'); });
-  });
-  document.addEventListener('mousedown', function () { c.classList.add('down'); });
-  document.addEventListener('mouseup', function () { c.classList.remove('down'); });
-})();

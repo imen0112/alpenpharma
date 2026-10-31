@@ -133,12 +133,9 @@ def country_map(shapes, key, W, H, box, cls, labels):
     view = View(lon0 - pad, lat0 - pad, lon1 + pad, lat1 + pad, *box)
     land = "".join(path(view, polys, W, H) for n, polys in shapes.items() if n != name)
     focus = path(view, shapes[name], W, H, 0.9)
-    _, lon, lat, _, _ = CITIES[key][0]
-    coords = f"{lat:.2f}°N  {lon:.2f}°E"
     body = (graticule(view, W, H) + f'<path class="map__land" d="{land}"/>'
             + f'<path class="map__shadow" d="{focus}" transform="translate(0 6)"/>'
-            + f'<path class="map__focus" d="{focus}"/>' + cities(view, key, labels)
-            + (f'<text class="map__coord" x="24" y="{H - 22}">{CITIES[key][0][0].upper()}  ·  {coords}</text>' if labels else ""))
+            + f'<path class="map__focus" d="{focus}"/>' + cities(view, key, labels))
     return svg(W, H, cls, f"Map of {name} showing key cities", body)
 
 
