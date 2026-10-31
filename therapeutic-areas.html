@@ -19,29 +19,31 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=1">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/operating-room-640.webp 640w, assets/img/operating-room-1024.webp 1024w, assets/img/operating-room.webp 1600w" imagesizes="100vw">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.alpen-health.com/"},{"@type":"ListItem","position":2,"name":"Therapeutic Areas","item":"https://www.alpen-health.com/therapeutic-areas.html"}]}</script>
 </head>
 <body class="is-overlay">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Alpen Health, home"><svg viewBox="0 0 520 172" role="img" aria-label="Alpen Health"><g transform="translate(-22 -6) scale(.222)"><path fill="currentColor" d="M618 55 1052 738 940 652 680 278 565 382 110 705Z"/><path fill="#59C4D1" d="M672 342 925 695Q790 612 665 601L497 607Z"/><path fill="#E54B4B" d="M500 475 405 638 245 657Z"/></g><text x="196" y="132" font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="140" letter-spacing="-5" fill="currentColor">lpen</text><text class="health" x="276" y="166" font-family="Montserrat, Arial, sans-serif" font-weight="500" font-size="27" letter-spacing="13.2" fill="#59C4D1">HEALTH</text></svg></a>
-    <nav class="nav" aria-label="Main">
+    <nav class="nav" id="site-nav" aria-label="Main">
       <a href="about.html">About</a>
       <a href="what-we-do.html">What We Do</a>
       <a href="therapeutic-areas.html" aria-current="page">Therapeutic Areas</a>
       <a href="markets.html">Markets</a>
       <a href="partnerships.html">Partnerships</a>
       <a class="btn" href="contact.html">Contact</a>
+      <div class="nav__contact"><a href="mailto:info@alpen-health.com">info@alpen-health.com</a><br><a href="tel:+21654574587">+216 54 574 587</a></div>
     </nav>
-    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="burger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 <main id="main">
 <section class="phero">
-  <div class="phero__img"><img src="assets/img/operating-room.webp" alt="Surgical team at work in an operating room" fetchpriority="high"></div>
+  <div class="phero__img"><img src="assets/img/operating-room.webp" srcset="assets/img/operating-room-640.webp 640w, assets/img/operating-room-1024.webp 1024w, assets/img/operating-room.webp 1600w" sizes="100vw" width="1600" height="1043" decoding="async" alt="Surgical team at work in an operating room" fetchpriority="high"></div>
   <div class="wrap">
     <p class="crumbs"><a href="index.html">Home</a><span>/</span>Therapeutic Areas</p>
     <p class="eyebrow reveal-up">Therapeutic areas</p>
@@ -58,34 +60,92 @@
     </div>
     <div class="intro-text rv rv-d1">
       <p>Alpen Health combines therapeutic understanding with deep local market expertise to build the right strategy, engagement model and path to growth for each opportunity.</p>
+      <p>For every area, we start from the same questions: who decides, how the therapy is funded and purchased, and what it takes to reach patients reliably.</p>
     </div>
   </div>
+
   <div class="wrap mt-l">
-    <div class="ta-list">
-      <div class="ta-item rv" id="immunology"><h3>Immunology, Plasma &amp; Rare Diseases</h3><p>Complex therapies. Specialist ecosystems. Critical access.</p></div>
-      <div class="ta-item rv" id="womens-health"><h3>Women’s Health, Fertility &amp; Reproductive Medicine</h3><p>Specialist science. Patient-centred pathways.</p></div>
-      <div class="ta-item rv" id="ophthalmology"><h3>Ophthalmology &amp; Vision Care</h3><p>Precision. Specialist engagement. Long-term value.</p></div>
-      <div class="ta-item rv" id="oncology"><h3>Oncology &amp; Supportive Care</h3><p>Specialised science. Complex pathways. Meaningful access.</p></div>
+    <div class="ta-grid snap">
+      <article class="ta-card rv" id="immunology">
+        <span class="ta-card__n">01</span>
+        <h3>Immunology, Plasma &amp; Rare Diseases</h3>
+        <p class="ta-card__tag">Complex therapies. Specialist ecosystems. Critical access.</p>
+        <p>Small patient populations, a limited number of expert centres and institutional purchasing. Success depends on reaching the right specialists, securing access pathways and protecting continuity of supply.</p>
+        <ul class="chips" aria-label="Key stakeholders"><li>Expert centres</li><li>Hospital pharmacy</li><li>Institutional procurement</li></ul>
+        <a class="ta-card__cta" href="contact.html?area=immunology">Discuss this area <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      </article>
+      <article class="ta-card rv rv-d1" id="womens-health">
+        <span class="ta-card__n">02</span>
+        <h3>Women’s Health, Fertility &amp; Reproductive Medicine</h3>
+        <p class="ta-card__tag">Specialist science. Patient-centred pathways.</p>
+        <p>Care is led by gynaecologists and fertility specialists, often in private clinics, where scientific credibility and the patient experience shape adoption.</p>
+        <ul class="chips" aria-label="Key stakeholders"><li>Fertility clinics</li><li>Gynaecologists</li><li>Private channel</li></ul>
+        <a class="ta-card__cta" href="contact.html?area=womens-health">Discuss this area <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      </article>
+      <article class="ta-card rv" id="ophthalmology">
+        <span class="ta-card__n">03</span>
+        <h3>Ophthalmology &amp; Vision Care</h3>
+        <p class="ta-card__tag">Precision. Specialist engagement. Long-term value.</p>
+        <p>A specialist-driven field where adoption follows clinical evidence, hands-on training and long-term relationships with ophthalmologists and surgical centres.</p>
+        <ul class="chips" aria-label="Key stakeholders"><li>Ophthalmologists</li><li>Eye surgery centres</li><li>Hospitals &amp; clinics</li></ul>
+        <a class="ta-card__cta" href="contact.html?area=ophthalmology">Discuss this area <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      </article>
+      <article class="ta-card rv rv-d1" id="oncology">
+        <span class="ta-card__n">04</span>
+        <h3>Oncology &amp; Supportive Care</h3>
+        <p class="ta-card__tag">Specialised science. Complex pathways. Meaningful access.</p>
+        <p>Multidisciplinary decisions, high-value therapies and structured funding make market access and medical engagement as decisive as the product itself.</p>
+        <ul class="chips" aria-label="Key stakeholders"><li>Oncology centres</li><li>Tumour boards</li><li>Payers &amp; tenders</li></ul>
+        <a class="ta-card__cta" href="contact.html?area=oncology">Discuss this area <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="figure figure--pano" style="aspect-ratio:auto;height:clamp(280px,38vw,520px)"><img src="assets/img/lab-pipette.webp" alt="Scientist in protective gear pipetting a sample" loading="lazy"></section>
+<div class="img-band"><img src="assets/img/lab-pipette.webp" srcset="assets/img/lab-pipette-640.webp 640w, assets/img/lab-pipette.webp 1024w" sizes="100vw" width="1024" height="1536" decoding="async" alt="Scientist in protective gear pipetting a sample" loading="lazy" ></div>
 
 <section class="sec">
   <div class="wrap">
-    <div class="ta-list" style="counter-reset: ta 4">
-      <div class="ta-item rv" id="neurology"><h3>Neurology &amp; Specialty Therapies</h3><p>Complex patient journeys. Specialist-led care.</p></div>
-      <div class="ta-item rv" id="hospital"><h3>Anaesthesia, Critical Care &amp; Hospital Solutions</h3><p>Clinical value. Institutional access. Hospital execution.</p></div>
-      <div class="ta-item rv" id="cardiology"><h3>Interventional Cardiology &amp; Cardiovascular Solutions</h3><p>Specialist-driven. Technology-intensive. Hospital-focused.</p></div>
-      <div class="ta-item rv" id="consumer-health"><h3>Consumer Health, Nutrition &amp; Wellness</h3><p>Healthcare credibility. Consumer relevance. Commercial agility.</p></div>
+    <div class="ta-grid snap">
+      <article class="ta-card rv" id="neurology">
+        <span class="ta-card__n">05</span>
+        <h3>Neurology &amp; Specialty Therapies</h3>
+        <p class="ta-card__tag">Complex patient journeys. Specialist-led care.</p>
+        <p>Long diagnostic journeys and chronic treatment call for close work with neurologists, structured patient follow-up and dependable supply.</p>
+        <ul class="chips" aria-label="Key stakeholders"><li>Neurologists</li><li>University hospitals</li><li>Hospital pharmacy</li></ul>
+        <a class="ta-card__cta" href="contact.html?area=neurology">Discuss this area <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      </article>
+      <article class="ta-card rv rv-d1" id="hospital">
+        <span class="ta-card__n">06</span>
+        <h3>Anaesthesia, Critical Care &amp; Hospital Solutions</h3>
+        <p class="ta-card__tag">Clinical value. Institutional access. Hospital execution.</p>
+        <p>Hospital products are selected through clinical evaluation and procurement, where tender expertise and reliable delivery decide market position.</p>
+        <ul class="chips" aria-label="Key stakeholders"><li>Anaesthesiologists</li><li>Intensive care teams</li><li>Procurement committees</li></ul>
+        <a class="ta-card__cta" href="contact.html?area=hospital">Discuss this area <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      </article>
+      <article class="ta-card rv" id="cardiology">
+        <span class="ta-card__n">07</span>
+        <h3>Interventional Cardiology &amp; Cardiovascular Solutions</h3>
+        <p class="ta-card__tag">Specialist-driven. Technology-intensive. Hospital-focused.</p>
+        <p>Technology-intensive solutions adopted in catheterisation labs, where physician training, technical support and institutional access go hand in hand.</p>
+        <ul class="chips" aria-label="Key stakeholders"><li>Interventional cardiologists</li><li>Cath labs</li><li>Hospital purchasing</li></ul>
+        <a class="ta-card__cta" href="contact.html?area=cardiology">Discuss this area <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      </article>
+      <article class="ta-card rv rv-d1" id="consumer-health">
+        <span class="ta-card__n">08</span>
+        <h3>Consumer Health, Nutrition &amp; Wellness</h3>
+        <p class="ta-card__tag">Healthcare credibility. Consumer relevance. Commercial agility.</p>
+        <p>Brands that need both healthcare-professional endorsement and a strong pharmacy presence, supported by fast and flexible commercial execution.</p>
+        <ul class="chips" aria-label="Key stakeholders"><li>Pharmacies</li><li>Healthcare professionals</li><li>Consumers</li></ul>
+        <a class="ta-card__cta" href="contact.html?area=consumer-health">Discuss this area <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      </article>
     </div>
     <p class="statement center maxw mt-l rv" style="margin-left:auto;margin-right:auto">Different therapies. Different pathways. <em>One commitment:</em> turning expertise into access, execution and sustainable growth.</p>
   </div>
 </section>
 
 <section class="cta">
-  <div class="cta__img"><img src="assets/img/matterhorn-dusk.webp" alt="" loading="lazy"></div>
+  <div class="cta__img"><img src="assets/img/matterhorn-dusk.webp" srcset="assets/img/matterhorn-dusk-640.webp 640w, assets/img/matterhorn-dusk-1024.webp 1024w, assets/img/matterhorn-dusk.webp 1600w" sizes="100vw" width="1600" height="1064" decoding="async" alt="" loading="lazy" ></div>
   <div class="wrap">
     <span class="spaced">You bring the science. We build the market.</span>
     <h2 class="h-lg rv">Exploring a specialty opportunity?</h2>
@@ -145,6 +205,7 @@
     </div>
   </div>
 </footer>
-<script src="assets/js/site.js?v=1" defer></script>
+<button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5"/></svg></button>
+<script src="assets/js/site.js?v=2" defer></script>
 </body>
 </html>

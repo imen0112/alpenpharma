@@ -17,14 +17,14 @@ overlay: no
   <div class="wrap contact-grid">
     <div>
       <h2 class="h-md">Partnership enquiry</h2>
-      <p class="muted mt-s">Please keep your first message brief and non-confidential. We will respond to arrange a follow-up discussion.</p>
+      <p class="muted mt-s">Please keep your first message brief and non-confidential. Fields marked <span class="req" style="color:var(--coral-600)">*</span> are required.</p>
       <form class="form mt-m" id="enquiry" action="contact.php" method="post" novalidate>
-        <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization" required></div>
-        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-company">Company<span class="req" aria-hidden="true">*</span></label><input id="f-company" name="company" autocomplete="organization" required></div>
+        <div class="field"><label for="f-name">Name<span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="f-position">Position</label><input id="f-position" name="position" autocomplete="organization-title"></div>
-        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-email">Email<span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div class="field">
-          <label for="f-market">Country / Market of interest</label>
+          <label for="f-market">Country / Market of interest<span class="req" aria-hidden="true">*</span></label>
           <select id="f-market" name="market" required>
             <option value="">Select a market</option>
             <option>Tunisia</option>
@@ -59,9 +59,9 @@ overlay: no
             <option>Not yet defined</option>
           </select>
         </div>
-        <div class="field field--full"><label for="f-message">Message</label><textarea id="f-message" name="message" required></textarea></div>
+        <div class="field field--full"><label for="f-message">Message<span class="req" aria-hidden="true">*</span></label><textarea id="f-message" name="message" required></textarea></div>
         <div class="hp" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
-        <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>I agree that Alpen Health may use my details to respond to this enquiry, as described in the <a href="privacy.html">Privacy Policy</a>.</span></label>
+        <label class="consent"><input type="checkbox" id="f-consent" name="consent" value="yes" required><span>I agree that Alpen Health may use my details to respond to this enquiry, as described in the <a href="privacy.html">Privacy Policy</a>.</span></label>
         <div class="form-actions">
           <button class="btn" type="submit">Submit Enquiry {{arrow}}</button>
           <p class="form-status" role="status" aria-live="polite"></p>

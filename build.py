@@ -13,6 +13,8 @@ Run: python3 build.py
 import pathlib
 import re
 
+from PIL import Image
+
 ROOT = pathlib.Path(__file__).parent
 SITE = "https://www.alpen-health.com"
 
@@ -61,20 +63,21 @@ HEAD = """<!doctype html>
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=1">
-{schema}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+{preload}{schema}
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Alpen Health, home">{logo}</a>
-    <nav class="nav" aria-label="Main">
+    <nav class="nav" id="site-nav" aria-label="Main">
       {nav}
       <a class="btn" href="contact.html"{contact_current}>Contact</a>
+      <div class="nav__contact"><a href="mailto:info@alpen-health.com">info@alpen-health.com</a><br><a href="tel:+21654574587">+216 54 574 587</a></div>
     </nav>
-    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="burger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 <main id="main">
@@ -132,7 +135,8 @@ FOOT = """</main>
     </div>
   </div>
 </footer>
-<script src="assets/js/site.js?v=1" defer></script>
+<button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5"/></svg></button>
+<script src="assets/js/site.js?v=2" defer></script>
 </body>
 </html>
 """
@@ -140,6 +144,60 @@ FOOT = """</main>
 SCHEMA = """<script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Alpen Health","url":"https://www.alpen-health.com/","logo":"https://www.alpen-health.com/apple-touch-icon.png","slogan":"Science. Access. Growth.","email":"info@alpen-health.com","telephone":"+216 54 574 587","address":{"@type":"PostalAddress","streetAddress":"Centre Urbain Nord","addressLocality":"Ariana","addressCountry":"TN"},"areaServed":["Tunisia","Algeria","Libya"],"parentOrganization":{"@type":"Organization","name":"KETATA Group"}}
 </script>"""
+
+
+IMG_DIR = ROOT / "assets" / "img"
+SIZES = {
+    "mcard": "(max-width: 760px) 80vw, (max-width: 900px) 100vw, 33vw",
+    "half": "(max-width: 900px) 100vw, 45vw",
+}
+
+
+def srcset(name):
+    out = []
+    for w in (640, 1024, 1600, 2200):
+        if (IMG_DIR / f"{name}-{w}.webp").exists():
+            out.append(f"assets/img/{name}-{w}.webp {w}w")
+    master = IMG_DIR / f"{name}.webp"
+    mw = Image.open(master).width
+    if not any(o.endswith(f" {mw}w") for o in out):
+        out.append(f"assets/img/{name}.webp {mw}w")
+    return ", ".join(out), Image.open(master).size
+
+
+def responsive(html):
+    """Add srcset/sizes/width/height to every content image."""
+    def fix(m):
+        tag = m.group(0)
+        name = m.group(1)
+        if "srcset=" in tag:
+            return tag
+        ss, (w, h) = srcset(name)
+        sizes = "100vw"
+        ds = re.search(r'data-sizes="([^"]+)"', tag)
+        if ds:
+            sizes = SIZES.get(ds.group(1), ds.group(1))
+            tag = tag.replace(ds.group(0), "")
+        extra = f' srcset="{ss}" sizes="{sizes}" width="{w}" height="{h}" decoding="async"'
+        return tag.replace(f'src="assets/img/{name}.webp"', f'src="assets/img/{name}.webp"{extra}')
+    return re.sub(r'<img[^>]*src="assets/img/([a-z0-9-]+)\.webp"[^>]*>', fix, html)
+
+
+def hero_preload(body):
+    m = re.search(r'<img[^>]*src="assets/img/([a-z0-9-]+)\.webp"[^>]*fetchpriority="high"', body)
+    if not m:
+        return ""
+    ss, _ = srcset(m.group(1))
+    return f'<link rel="preload" as="image" type="image/webp" imagesrcset="{ss}" imagesizes="100vw">\n'
+
+
+def breadcrumb(title, url, name):
+    if name == "index.html":
+        return ""
+    label = title.split("|")[0].strip()
+    return ('<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":['
+            f'{{"@type":"ListItem","position":1,"name":"Home","item":"{SITE}/"}},'
+            f'{{"@type":"ListItem","position":2,"name":"{label}","item":"{url}"}}]}}</script>')
 
 
 def parse(text):
@@ -152,6 +210,7 @@ def parse(text):
 
 
 def build():
+    pages = []
     for src in sorted((ROOT / "src" / "pages").glob("*.html")):
         meta, body = parse(src.read_text(encoding="utf-8"))
         current = meta.get("nav", "")
@@ -167,15 +226,26 @@ def build():
             description=meta["description"],
             url=url,
             site=SITE,
-            schema=SCHEMA if name in ("index.html", "contact.html") else "",
+            schema=(SCHEMA if name in ("index.html", "contact.html") else "") + breadcrumb(meta["title"], url, name),
+            preload=hero_preload(body),
             body_class="is-overlay" if meta.get("overlay") == "yes" else "",
             logo=LOGO,
             nav=nav,
             contact_current=' aria-current="page"' if current == "contact" else "",
         )
-        html += body.replace("{{arrow}}", ARROW) + FOOT.format(logo=LOGO)
+        html += responsive(body.replace("{{arrow}}", ARROW)) + FOOT.format(logo=LOGO)
         (ROOT / name).write_text(html, encoding="utf-8")
+        if name != "404.html" and meta.get("nav") is not None:
+            pages.append(url)
         print("built", name)
+    sitemap(pages)
+
+
+def sitemap(pages):
+    urls = "\n".join(f"  <url><loc>{u}</loc><lastmod>2026-10-31</lastmod></url>" for u in pages)
+    (ROOT / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "\n</urlset>\n")
+    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
 
 
 if __name__ == "__main__":

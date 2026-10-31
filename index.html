@@ -19,8 +19,9 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/hero-matterhorn-640.webp 640w, assets/img/hero-matterhorn-1024.webp 1024w, assets/img/hero-matterhorn-1600.webp 1600w, assets/img/hero-matterhorn.webp 2200w" imagesizes="100vw">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Alpen Health","url":"https://www.alpen-health.com/","logo":"https://www.alpen-health.com/apple-touch-icon.png","slogan":"Science. Access. Growth.","email":"info@alpen-health.com","telephone":"+216 54 574 587","address":{"@type":"PostalAddress","streetAddress":"Centre Urbain Nord","addressLocality":"Ariana","addressCountry":"TN"},"areaServed":["Tunisia","Algeria","Libya"],"parentOrganization":{"@type":"Organization","name":"KETATA Group"}}
 </script>
@@ -30,20 +31,21 @@
 <header class="site-header">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Alpen Health, home"><svg viewBox="0 0 520 172" role="img" aria-label="Alpen Health"><g transform="translate(-22 -6) scale(.222)"><path fill="currentColor" d="M618 55 1052 738 940 652 680 278 565 382 110 705Z"/><path fill="#59C4D1" d="M672 342 925 695Q790 612 665 601L497 607Z"/><path fill="#E54B4B" d="M500 475 405 638 245 657Z"/></g><text x="196" y="132" font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="140" letter-spacing="-5" fill="currentColor">lpen</text><text class="health" x="276" y="166" font-family="Montserrat, Arial, sans-serif" font-weight="500" font-size="27" letter-spacing="13.2" fill="#59C4D1">HEALTH</text></svg></a>
-    <nav class="nav" aria-label="Main">
+    <nav class="nav" id="site-nav" aria-label="Main">
       <a href="about.html">About</a>
       <a href="what-we-do.html">What We Do</a>
       <a href="therapeutic-areas.html">Therapeutic Areas</a>
       <a href="markets.html">Markets</a>
       <a href="partnerships.html">Partnerships</a>
       <a class="btn" href="contact.html">Contact</a>
+      <div class="nav__contact"><a href="mailto:info@alpen-health.com">info@alpen-health.com</a><br><a href="tel:+21654574587">+216 54 574 587</a></div>
     </nav>
-    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="burger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 <main id="main">
 <section class="hero">
-  <div class="hero__img"><img src="assets/img/hero-matterhorn.webp" alt="The Matterhorn under a clear blue sky" fetchpriority="high"></div>
+  <div class="hero__img"><img src="assets/img/hero-matterhorn.webp" srcset="assets/img/hero-matterhorn-640.webp 640w, assets/img/hero-matterhorn-1024.webp 1024w, assets/img/hero-matterhorn-1600.webp 1600w, assets/img/hero-matterhorn.webp 2200w" sizes="100vw" width="2200" height="1467" decoding="async" alt="The Matterhorn under a clear blue sky" fetchpriority="high"></div>
   <div class="wrap hero__body">
     <div>
       <p class="eyebrow reveal-up">Science. Access. Growth.</p>
@@ -61,10 +63,11 @@
     </div>
   </div>
   <div class="hero__strip">
-    <div class="wrap">
-      <span><b>Strategy to execution</b> &nbsp;·&nbsp; from opportunity assessment to long-term growth</span>
-      <span class="dots spaced"><span>Tunisia</span><span>Algeria</span><span>Libya</span></span>
-    </div>
+    <nav class="wrap hero__paths" aria-label="Start here">
+      <a href="what-we-do.html"><div>Our capabilities<span>From strategy to execution</span></div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      <a href="markets.html"><div>Our markets<span>Tunisia · Algeria · Libya</span></div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      <a href="contact.html"><div>Start a partnership<span>Tell us what you are exploring</span></div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+    </nav>
   </div>
 </section>
 
@@ -83,7 +86,7 @@
 </section>
 
 <section class="band">
-  <div class="band__img"><img src="assets/img/meeting-table.webp" alt="Partners reviewing documents together around a meeting table" loading="lazy"></div>
+  <div class="band__img"><img src="assets/img/meeting-table.webp" srcset="assets/img/meeting-table-640.webp 640w, assets/img/meeting-table-1024.webp 1024w, assets/img/meeting-table.webp 1600w" sizes="(max-width: 900px) 100vw, 45vw" width="1600" height="1067" decoding="async"  alt="Partners reviewing documents together around a meeting table" loading="lazy"></div>
   <div class="band__body">
     <p class="eyebrow">Beyond distribution</p>
     <h2 class="h-lg rv">We don't simply bring products to markets.</h2>
@@ -102,7 +105,7 @@
       </div>
       <p class="rv rv-d1">Six integrated capabilities that work as one, building the right pathway for each therapy and each market.</p>
     </div>
-    <div class="caps">
+    <div class="caps snap">
       <a class="cap rv" href="what-we-do.html#strategy"><span class="cap__n">01</span><h3>Market &amp; Portfolio Strategy</h3><p>Identify opportunities, prioritise portfolios and define the right route to market.</p></a>
       <a class="cap rv rv-d1" href="what-we-do.html#regulatory"><span class="cap__n">02</span><h3>Regulatory &amp; Quality</h3><p>Coordinate regulatory pathways, quality interfaces and lifecycle requirements.</p></a>
       <a class="cap rv rv-d2" href="what-we-do.html#access"><span class="cap__n">03</span><h3>Market Access</h3><p>Shape pricing, institutional access, procurement and tender pathways.</p></a>
@@ -153,17 +156,20 @@
       <p class="eyebrow rv">Therapeutic areas</p>
       <h2 class="h-lg rv">Expertise where science meets execution.</h2>
       <p class="muted mt-s rv rv-d1">Different therapies require different stakeholders, access pathways and commercial models. Our approach combines therapeutic understanding with local market expertise.</p>
-      <div class="figure figure--tall mt-m rv rv-d2"><img src="assets/img/lab-flask.webp" alt="Scientist examining a flask of amber liquid in a laboratory" loading="lazy"></div>
+      <div class="figure figure--tall mt-m rv rv-d2"><img src="assets/img/lab-flask.webp" srcset="assets/img/lab-flask-640.webp 640w, assets/img/lab-flask-1024.webp 1024w, assets/img/lab-flask.webp 1600w" sizes="(max-width: 900px) 100vw, 45vw" width="1600" height="2400" decoding="async"  alt="Scientist examining a flask of amber liquid in a laboratory" loading="lazy"></div>
     </div>
-    <div class="ta-list ta-list--compact rv rv-d1">
-      <a class="ta-item" href="therapeutic-areas.html#immunology"><h3>Immunology, Plasma &amp; Rare Diseases</h3><span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></a>
-      <a class="ta-item" href="therapeutic-areas.html#womens-health"><h3>Women’s Health, Fertility &amp; Reproductive Medicine</h3><span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></a>
-      <a class="ta-item" href="therapeutic-areas.html#ophthalmology"><h3>Ophthalmology &amp; Vision Care</h3><span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></a>
-      <a class="ta-item" href="therapeutic-areas.html#oncology"><h3>Oncology &amp; Supportive Care</h3><span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></a>
-      <a class="ta-item" href="therapeutic-areas.html#neurology"><h3>Neurology &amp; Specialty Therapies</h3><span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></a>
-      <a class="ta-item" href="therapeutic-areas.html#hospital"><h3>Anaesthesia, Critical Care &amp; Hospital Solutions</h3><span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></a>
-      <a class="ta-item" href="therapeutic-areas.html#cardiology"><h3>Interventional Cardiology &amp; Cardiovascular Solutions</h3><span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></a>
-      <a class="ta-item" href="therapeutic-areas.html#consumer-health"><h3>Consumer Health, Nutrition &amp; Wellness</h3><span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></a>
+    <div class="rv rv-d1">
+      <ol class="ta-static">
+        <li>Immunology, Plasma &amp; Rare Diseases</li>
+        <li>Women’s Health, Fertility &amp; Reproductive Medicine</li>
+        <li>Ophthalmology &amp; Vision Care</li>
+        <li>Oncology &amp; Supportive Care</li>
+        <li>Neurology &amp; Specialty Therapies</li>
+        <li>Anaesthesia, Critical Care &amp; Hospital Solutions</li>
+        <li>Interventional Cardiology &amp; Cardiovascular Solutions</li>
+        <li>Consumer Health, Nutrition &amp; Wellness</li>
+      </ol>
+      <p class="mt-m mb-0"><a class="link-arrow" href="therapeutic-areas.html">Explore therapeutic areas <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a></p>
     </div>
   </div>
 </section>
@@ -177,19 +183,19 @@
       </div>
       <p class="rv rv-d1">North Africa is one region, but not one market. We don't replicate models across countries. We build the right model for each market.</p>
     </div>
-    <div class="markets">
+    <div class="markets snap">
       <a class="mcard rv" href="markets.html#tunisia">
-        <img src="assets/img/tunisia-sidi-bou-said.webp" alt="White and blue houses of Sidi Bou Said overlooking the Gulf of Tunis" loading="lazy">
+        <img src="assets/img/tunisia-sidi-bou-said.webp" srcset="assets/img/tunisia-sidi-bou-said-640.webp 640w, assets/img/tunisia-sidi-bou-said-1024.webp 1024w, assets/img/tunisia-sidi-bou-said.webp 1600w" sizes="(max-width: 760px) 80vw, (max-width: 900px) 100vw, 33vw" width="1600" height="1067" decoding="async" alt="White and blue houses of Sidi Bou Said overlooking the Gulf of Tunis"  loading="lazy">
         <span class="mcard__tag">01</span>
         <div class="mcard__body"><h3>Tunisia</h3><p class="spaced mb-0">Navigate. Access. Grow.</p><span class="mcard__more">Discover <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></div>
       </a>
       <a class="mcard rv rv-d1" href="markets.html#algeria">
-        <img src="assets/img/algiers-bay.webp" alt="View over the city of Algiers and the Mediterranean" loading="lazy">
+        <img src="assets/img/algiers-bay.webp" srcset="assets/img/algiers-bay-640.webp 640w, assets/img/algiers-bay-1024.webp 1024w, assets/img/algiers-bay.webp 1600w" sizes="(max-width: 760px) 80vw, (max-width: 900px) 100vw, 33vw" width="1600" height="2133" decoding="async" alt="View over the city of Algiers and the Mediterranean"  loading="lazy">
         <span class="mcard__tag">02</span>
         <div class="mcard__body"><h3>Algeria</h3><p class="spaced mb-0">Localize. Access. Scale.</p><span class="mcard__more">Discover <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></div>
       </a>
       <a class="mcard rv rv-d2" href="markets.html#libya">
-        <img src="assets/img/tripoli.webp" alt="Historic architecture in Tripoli, Libya" loading="lazy">
+        <img src="assets/img/tripoli.webp" srcset="assets/img/tripoli-640.webp 640w, assets/img/tripoli.webp 1024w" sizes="(max-width: 760px) 80vw, (max-width: 900px) 100vw, 33vw" width="1024" height="1366" decoding="async" alt="Historic architecture in Tripoli, Libya"  loading="lazy">
         <span class="mcard__tag">03</span>
         <div class="mcard__body"><h3>Libya</h3><p class="spaced mb-0">Connect. Navigate. Deliver.</p><span class="mcard__more">Discover <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></div>
       </a>
@@ -206,7 +212,7 @@
       </div>
       <p class="rv rv-d1">Complementary capabilities, aligned on one goal: therapies that reach the patients who need them, and businesses built to last.</p>
     </div>
-    <div class="equation">
+    <div class="equation snap">
       <div class="eq-col rv"><span class="spaced">You bring</span><ul><li>Innovation &amp; science</li><li>High-quality products</li><li>Manufacturing &amp; supply</li><li>International standards</li></ul></div>
       <div class="eq-op" aria-hidden="true">+</div>
       <div class="eq-col eq-col--alpen rv rv-d1"><span class="spaced">Alpen brings</span><ul><li>Local intelligence</li><li>Regulatory &amp; market access</li><li>Medical engagement</li><li>Commercial execution</li></ul></div>
@@ -218,7 +224,7 @@
 </section>
 
 <section class="cta">
-  <div class="cta__img"><img src="assets/img/matterhorn-dusk.webp" alt="" loading="lazy"></div>
+  <div class="cta__img"><img src="assets/img/matterhorn-dusk.webp" srcset="assets/img/matterhorn-dusk-640.webp 640w, assets/img/matterhorn-dusk-1024.webp 1024w, assets/img/matterhorn-dusk.webp 1600w" sizes="100vw" width="1600" height="1064" decoding="async" alt="" loading="lazy"></div>
   <div class="wrap">
     <span class="spaced">One partner. A healthier tomorrow.</span>
     <h2 class="h-lg rv">Have a portfolio opportunity in North Africa?</h2>
@@ -281,6 +287,7 @@
     </div>
   </div>
 </footer>
-<script src="assets/js/site.js?v=1" defer></script>
+<button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5"/></svg></button>
+<script src="assets/js/site.js?v=2" defer></script>
 </body>
 </html>

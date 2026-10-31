@@ -19,26 +19,27 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Alpen Health","url":"https://www.alpen-health.com/","logo":"https://www.alpen-health.com/apple-touch-icon.png","slogan":"Science. Access. Growth.","email":"info@alpen-health.com","telephone":"+216 54 574 587","address":{"@type":"PostalAddress","streetAddress":"Centre Urbain Nord","addressLocality":"Ariana","addressCountry":"TN"},"areaServed":["Tunisia","Algeria","Libya"],"parentOrganization":{"@type":"Organization","name":"KETATA Group"}}
-</script>
+</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.alpen-health.com/"},{"@type":"ListItem","position":2,"name":"Contact Alpen Health","item":"https://www.alpen-health.com/contact.html"}]}</script>
 </head>
 <body class="">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Alpen Health, home"><svg viewBox="0 0 520 172" role="img" aria-label="Alpen Health"><g transform="translate(-22 -6) scale(.222)"><path fill="currentColor" d="M618 55 1052 738 940 652 680 278 565 382 110 705Z"/><path fill="#59C4D1" d="M672 342 925 695Q790 612 665 601L497 607Z"/><path fill="#E54B4B" d="M500 475 405 638 245 657Z"/></g><text x="196" y="132" font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="140" letter-spacing="-5" fill="currentColor">lpen</text><text class="health" x="276" y="166" font-family="Montserrat, Arial, sans-serif" font-weight="500" font-size="27" letter-spacing="13.2" fill="#59C4D1">HEALTH</text></svg></a>
-    <nav class="nav" aria-label="Main">
+    <nav class="nav" id="site-nav" aria-label="Main">
       <a href="about.html">About</a>
       <a href="what-we-do.html">What We Do</a>
       <a href="therapeutic-areas.html">Therapeutic Areas</a>
       <a href="markets.html">Markets</a>
       <a href="partnerships.html">Partnerships</a>
       <a class="btn" href="contact.html" aria-current="page">Contact</a>
+      <div class="nav__contact"><a href="mailto:info@alpen-health.com">info@alpen-health.com</a><br><a href="tel:+21654574587">+216 54 574 587</a></div>
     </nav>
-    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="burger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 <main id="main">
@@ -55,14 +56,14 @@
   <div class="wrap contact-grid">
     <div>
       <h2 class="h-md">Partnership enquiry</h2>
-      <p class="muted mt-s">Please keep your first message brief and non-confidential. We will respond to arrange a follow-up discussion.</p>
+      <p class="muted mt-s">Please keep your first message brief and non-confidential. Fields marked <span class="req" style="color:var(--coral-600)">*</span> are required.</p>
       <form class="form mt-m" id="enquiry" action="contact.php" method="post" novalidate>
-        <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization" required></div>
-        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-company">Company<span class="req" aria-hidden="true">*</span></label><input id="f-company" name="company" autocomplete="organization" required></div>
+        <div class="field"><label for="f-name">Name<span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="f-position">Position</label><input id="f-position" name="position" autocomplete="organization-title"></div>
-        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-email">Email<span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div class="field">
-          <label for="f-market">Country / Market of interest</label>
+          <label for="f-market">Country / Market of interest<span class="req" aria-hidden="true">*</span></label>
           <select id="f-market" name="market" required>
             <option value="">Select a market</option>
             <option>Tunisia</option>
@@ -97,9 +98,9 @@
             <option>Not yet defined</option>
           </select>
         </div>
-        <div class="field field--full"><label for="f-message">Message</label><textarea id="f-message" name="message" required></textarea></div>
+        <div class="field field--full"><label for="f-message">Message<span class="req" aria-hidden="true">*</span></label><textarea id="f-message" name="message" required></textarea></div>
         <div class="hp" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
-        <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>I agree that Alpen Health may use my details to respond to this enquiry, as described in the <a href="privacy.html">Privacy Policy</a>.</span></label>
+        <label class="consent"><input type="checkbox" id="f-consent" name="consent" value="yes" required><span>I agree that Alpen Health may use my details to respond to this enquiry, as described in the <a href="privacy.html">Privacy Policy</a>.</span></label>
         <div class="form-actions">
           <button class="btn" type="submit">Submit Enquiry <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></button>
           <p class="form-status" role="status" aria-live="polite"></p>
@@ -172,6 +173,7 @@
     </div>
   </div>
 </footer>
-<script src="assets/js/site.js?v=1" defer></script>
+<button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5"/></svg></button>
+<script src="assets/js/site.js?v=2" defer></script>
 </body>
 </html>

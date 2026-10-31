@@ -19,24 +19,25 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=1">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.alpen-health.com/"},{"@type":"ListItem","position":2,"name":"Privacy Policy","item":"https://www.alpen-health.com/privacy.html"}]}</script>
 </head>
 <body class="">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Alpen Health, home"><svg viewBox="0 0 520 172" role="img" aria-label="Alpen Health"><g transform="translate(-22 -6) scale(.222)"><path fill="currentColor" d="M618 55 1052 738 940 652 680 278 565 382 110 705Z"/><path fill="#59C4D1" d="M672 342 925 695Q790 612 665 601L497 607Z"/><path fill="#E54B4B" d="M500 475 405 638 245 657Z"/></g><text x="196" y="132" font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="140" letter-spacing="-5" fill="currentColor">lpen</text><text class="health" x="276" y="166" font-family="Montserrat, Arial, sans-serif" font-weight="500" font-size="27" letter-spacing="13.2" fill="#59C4D1">HEALTH</text></svg></a>
-    <nav class="nav" aria-label="Main">
+    <nav class="nav" id="site-nav" aria-label="Main">
       <a href="about.html">About</a>
       <a href="what-we-do.html">What We Do</a>
       <a href="therapeutic-areas.html">Therapeutic Areas</a>
       <a href="markets.html">Markets</a>
       <a href="partnerships.html">Partnerships</a>
       <a class="btn" href="contact.html">Contact</a>
+      <div class="nav__contact"><a href="mailto:info@alpen-health.com">info@alpen-health.com</a><br><a href="tel:+21654574587">+216 54 574 587</a></div>
     </nav>
-    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="burger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 <main id="main">
@@ -121,6 +122,7 @@
     </div>
   </div>
 </footer>
-<script src="assets/js/site.js?v=1" defer></script>
+<button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5"/></svg></button>
+<script src="assets/js/site.js?v=2" defer></script>
 </body>
 </html>

@@ -19,29 +19,31 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=1">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/lab-research-640.webp 640w, assets/img/lab-research-1024.webp 1024w, assets/img/lab-research.webp 1600w" imagesizes="100vw">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.alpen-health.com/"},{"@type":"ListItem","position":2,"name":"What We Do","item":"https://www.alpen-health.com/what-we-do.html"}]}</script>
 </head>
 <body class="is-overlay">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Alpen Health, home"><svg viewBox="0 0 520 172" role="img" aria-label="Alpen Health"><g transform="translate(-22 -6) scale(.222)"><path fill="currentColor" d="M618 55 1052 738 940 652 680 278 565 382 110 705Z"/><path fill="#59C4D1" d="M672 342 925 695Q790 612 665 601L497 607Z"/><path fill="#E54B4B" d="M500 475 405 638 245 657Z"/></g><text x="196" y="132" font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="140" letter-spacing="-5" fill="currentColor">lpen</text><text class="health" x="276" y="166" font-family="Montserrat, Arial, sans-serif" font-weight="500" font-size="27" letter-spacing="13.2" fill="#59C4D1">HEALTH</text></svg></a>
-    <nav class="nav" aria-label="Main">
+    <nav class="nav" id="site-nav" aria-label="Main">
       <a href="about.html">About</a>
       <a href="what-we-do.html" aria-current="page">What We Do</a>
       <a href="therapeutic-areas.html">Therapeutic Areas</a>
       <a href="markets.html">Markets</a>
       <a href="partnerships.html">Partnerships</a>
       <a class="btn" href="contact.html">Contact</a>
+      <div class="nav__contact"><a href="mailto:info@alpen-health.com">info@alpen-health.com</a><br><a href="tel:+21654574587">+216 54 574 587</a></div>
     </nav>
-    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="burger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 <main id="main">
 <section class="phero">
-  <div class="phero__img"><img src="assets/img/lab-research.webp" alt="Scientist in a lab coat reviewing results in a laboratory" fetchpriority="high"></div>
+  <div class="phero__img"><img src="assets/img/lab-research.webp" srcset="assets/img/lab-research-640.webp 640w, assets/img/lab-research-1024.webp 1024w, assets/img/lab-research.webp 1600w" sizes="100vw" width="1600" height="1067" decoding="async" alt="Scientist in a lab coat reviewing results in a laboratory" fetchpriority="high"></div>
   <div class="wrap">
     <p class="crumbs"><a href="index.html">Home</a><span>/</span>What We Do</p>
     <p class="eyebrow reveal-up">What we do</p>
@@ -74,6 +76,9 @@
       <a href="#operations"><span>06</span>Operations &amp; Governance</a>
     </nav>
     <div>
+      <nav class="svc-chips" aria-label="Capabilities">
+        <a href="#strategy">Strategy</a><a href="#regulatory">Regulatory</a><a href="#access">Market Access</a><a href="#medical">Medical</a><a href="#commercial">Commercial</a><a href="#operations">Operations</a>
+      </nav>
       <article class="svc" id="strategy">
         <span class="svc__n">01</span>
         <h2>Market &amp; Portfolio Strategy</h2>
@@ -88,7 +93,7 @@
             <li>Commercial scenarios &amp; business case</li>
           </ul>
         </div>
-        <div class="figure figure--pano mt-m"><img src="assets/img/boardroom.webp" alt="Team discussing strategy in a bright boardroom" loading="lazy"></div>
+        <div class="figure figure--pano mt-m"><img src="assets/img/boardroom.webp" srcset="assets/img/boardroom-640.webp 640w, assets/img/boardroom-1024.webp 1024w, assets/img/boardroom.webp 1600w" sizes="100vw" width="1600" height="1068" decoding="async" alt="Team discussing strategy in a bright boardroom" loading="lazy"></div>
       </article>
 
       <article class="svc" id="regulatory">
@@ -121,7 +126,7 @@
             <li>Tender preparation &amp; execution support</li>
           </ul>
         </div>
-        <div class="figure figure--pano mt-m"><img src="assets/img/pharmacy-shelves.webp" alt="Organised shelves of medicines in a pharmacy" loading="lazy"></div>
+        <div class="figure figure--pano mt-m"><img src="assets/img/pharmacy-shelves.webp" srcset="assets/img/pharmacy-shelves-640.webp 640w, assets/img/pharmacy-shelves.webp 1024w" sizes="100vw" width="1024" height="684" decoding="async" alt="Organised shelves of medicines in a pharmacy" loading="lazy"></div>
       </article>
 
       <article class="svc" id="medical">
@@ -154,7 +159,7 @@
             <li>Performance monitoring &amp; optimisation</li>
           </ul>
         </div>
-        <div class="figure figure--pano mt-m"><img src="assets/img/pharmacist.webp" alt="Pharmacist at the counter speaking with a customer" loading="lazy"></div>
+        <div class="figure figure--pano mt-m"><img src="assets/img/pharmacist.webp" srcset="assets/img/pharmacist-640.webp 640w, assets/img/pharmacist.webp 1024w" sizes="100vw" width="1024" height="682" decoding="async" alt="Pharmacist at the counter speaking with a customer" loading="lazy"></div>
       </article>
 
       <article class="svc" id="operations">
@@ -177,7 +182,7 @@
 </section>
 
 <section class="cta">
-  <div class="cta__img"><img src="assets/img/matterhorn-dusk.webp" alt="" loading="lazy"></div>
+  <div class="cta__img"><img src="assets/img/matterhorn-dusk.webp" srcset="assets/img/matterhorn-dusk-640.webp 640w, assets/img/matterhorn-dusk-1024.webp 1024w, assets/img/matterhorn-dusk.webp 1600w" sizes="100vw" width="1600" height="1064" decoding="async" alt="" loading="lazy"></div>
   <div class="wrap">
     <span class="spaced">Science. Access. Growth.</span>
     <h2 class="h-lg rv">Let's define the right pathway for your therapy.</h2>
@@ -237,6 +242,7 @@
     </div>
   </div>
 </footer>
-<script src="assets/js/site.js?v=1" defer></script>
+<button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5"/></svg></button>
+<script src="assets/js/site.js?v=2" defer></script>
 </body>
 </html>

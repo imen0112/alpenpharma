@@ -19,29 +19,31 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=1">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/meeting-table-640.webp 640w, assets/img/meeting-table-1024.webp 1024w, assets/img/meeting-table.webp 1600w" imagesizes="100vw">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.alpen-health.com/"},{"@type":"ListItem","position":2,"name":"Partnerships","item":"https://www.alpen-health.com/partnerships.html"}]}</script>
 </head>
 <body class="is-overlay">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Alpen Health, home"><svg viewBox="0 0 520 172" role="img" aria-label="Alpen Health"><g transform="translate(-22 -6) scale(.222)"><path fill="currentColor" d="M618 55 1052 738 940 652 680 278 565 382 110 705Z"/><path fill="#59C4D1" d="M672 342 925 695Q790 612 665 601L497 607Z"/><path fill="#E54B4B" d="M500 475 405 638 245 657Z"/></g><text x="196" y="132" font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="140" letter-spacing="-5" fill="currentColor">lpen</text><text class="health" x="276" y="166" font-family="Montserrat, Arial, sans-serif" font-weight="500" font-size="27" letter-spacing="13.2" fill="#59C4D1">HEALTH</text></svg></a>
-    <nav class="nav" aria-label="Main">
+    <nav class="nav" id="site-nav" aria-label="Main">
       <a href="about.html">About</a>
       <a href="what-we-do.html">What We Do</a>
       <a href="therapeutic-areas.html">Therapeutic Areas</a>
       <a href="markets.html">Markets</a>
       <a href="partnerships.html" aria-current="page">Partnerships</a>
       <a class="btn" href="contact.html">Contact</a>
+      <div class="nav__contact"><a href="mailto:info@alpen-health.com">info@alpen-health.com</a><br><a href="tel:+21654574587">+216 54 574 587</a></div>
     </nav>
-    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="burger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 <main id="main">
 <section class="phero">
-  <div class="phero__img"><img src="assets/img/meeting-table.webp" alt="Partners working together around a table" fetchpriority="high"></div>
+  <div class="phero__img"><img src="assets/img/meeting-table.webp" srcset="assets/img/meeting-table-640.webp 640w, assets/img/meeting-table-1024.webp 1024w, assets/img/meeting-table.webp 1600w" sizes="100vw" width="1600" height="1067" decoding="async" alt="Partners working together around a table" fetchpriority="high"></div>
   <div class="wrap">
     <p class="crumbs"><a href="index.html">Home</a><span>/</span>Partnerships</p>
     <p class="eyebrow reveal-up">Partnerships</p>
@@ -61,7 +63,7 @@
     </div>
   </div>
   <div class="wrap mt-l">
-    <div class="equation">
+    <div class="equation snap">
       <div class="eq-col rv"><span class="spaced">You bring</span><ul><li>Innovation &amp; science</li><li>Products &amp; portfolio</li><li>Scientific expertise</li><li>Manufacturing capabilities</li><li>Quality &amp; reliable supply</li><li>International brand assets</li></ul></div>
       <div class="eq-op" aria-hidden="true">+</div>
       <div class="eq-col eq-col--alpen rv rv-d1"><span class="spaced">Alpen brings</span><ul><li>Local market intelligence</li><li>Regulatory coordination</li><li>Market access &amp; tenders</li><li>Medical engagement</li><li>Commercial execution</li><li>Operational coordination</li></ul></div>
@@ -80,7 +82,7 @@
       </div>
       <p class="rv rv-d1">Together, we don't simply launch products. We build markets, develop franchises and create long-term healthcare businesses.</p>
     </div>
-    <div class="why">
+    <div class="why snap">
       <div class="why__item rv">
         <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M16 29s-9-8.2-9-15a9 9 0 0 1 18 0c0 6.8-9 15-9 15Z"/><circle cx="16" cy="14" r="3.2"/></svg>
         <h3>Local Depth</h3><p>Deep understanding of local healthcare environments.</p>
@@ -108,7 +110,7 @@
 
 <section class="sec">
   <div class="wrap split">
-    <div class="figure figure--wide rv"><img src="assets/img/stethoscope.webp" alt="Physician holding a stethoscope" loading="lazy"></div>
+    <div class="figure figure--wide rv"><img src="assets/img/stethoscope.webp" srcset="assets/img/stethoscope-640.webp 640w, assets/img/stethoscope.webp 1024w" sizes="(max-width: 900px) 100vw, 45vw" width="1024" height="1536" decoding="async"  alt="Physician holding a stethoscope" loading="lazy"></div>
     <div class="rv rv-d1">
       <p class="eyebrow">Next step</p>
       <h2 class="h-lg">Have a portfolio opportunity in North Africa?</h2>
@@ -169,6 +171,7 @@
     </div>
   </div>
 </footer>
-<script src="assets/js/site.js?v=1" defer></script>
+<button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5"/></svg></button>
+<script src="assets/js/site.js?v=2" defer></script>
 </body>
 </html>
