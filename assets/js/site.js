@@ -250,7 +250,7 @@
 // Coral cursor over the maps and the footer logo (mouse only)
 (function () {
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  var zones = document.querySelectorAll('.mcard, .mdetail__img, .phero:has(.map), .site-footer .logo');
+  var zones = document.querySelectorAll('.mcard, .mdetail__img, .phero:has(.map), .site-footer .logo, .hero, .cta, .phero:has(img[src*="matterhorn"], img[src*="alps"])');
   if (!zones.length) return;
   var c = document.createElement('div');
   c.className = 'cursor';
