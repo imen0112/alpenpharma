@@ -58,9 +58,9 @@ HEAD = """<!doctype html>
 <meta property="og:image" content="{site}/assets/img/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#082B4C">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
