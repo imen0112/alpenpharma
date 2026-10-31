@@ -678,8 +678,8 @@ img { height: auto; }
   .hero__body { padding-top: 120px; padding-bottom: 40px; }
   .hero__lead { margin: 20px 0 28px; }
   .btns .btn { justify-content: center; }
-  .hero .btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .hero .btns .btn { padding: 14px 12px; }
+  .hero .btns { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .hero .btns .btn { padding: 16px 24px; white-space: nowrap; width: 100%; }
   .motto { font-size: 11px; letter-spacing: .2em; }
   .motto i { margin: 0 8px; }
   .footer-band p { font-size: 11px; letter-spacing: .2em; }
