@@ -8,6 +8,7 @@
   var toTop = document.querySelector('.to-top');
   var lastY = 0;
   function onScroll() {
+    if (body.classList.contains('menu-open')) return;
     var y = window.scrollY;
     header.classList.toggle('scrolled', y > 40);
     if (!body.classList.contains('menu-open')) {
@@ -24,16 +25,26 @@
 
   // Mobile menu
   var burger = document.querySelector('.burger');
+  var lockedY = 0;
+  function openMenu() {
+    lockedY = window.scrollY;
+    header.classList.remove('hidden');
+    body.classList.add('menu-open');
+    body.style.position = 'fixed';
+    body.style.top = -lockedY + 'px';
+    body.style.left = body.style.right = '0';
+    burger.setAttribute('aria-expanded', 'true');
+  }
   function closeMenu() {
+    if (!body.classList.contains('menu-open')) return;
     body.classList.remove('menu-open');
-    body.style.overflow = '';
+    body.style.position = body.style.top = body.style.left = body.style.right = '';
+    window.scrollTo(0, lockedY);
     if (burger) burger.setAttribute('aria-expanded', 'false');
   }
   if (burger) {
     burger.addEventListener('click', function () {
-      var open = body.classList.toggle('menu-open');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      body.style.overflow = open ? 'hidden' : '';
+      if (body.classList.contains('menu-open')) closeMenu(); else openMenu();
     });
     document.querySelectorAll('.nav a').forEach(function (a) { a.addEventListener('click', closeMenu); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });

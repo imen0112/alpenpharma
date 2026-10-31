@@ -687,3 +687,10 @@ img { height: auto; }
   .persp__col { padding: 26px 22px; }
   .eco__mark { padding: 30px 24px; }
 }
+
+/* Mobile menu: backdrop-filter/transform on the header would trap the fixed panel inside it (iOS Safari) */
+@media (max-width: 1020px) {
+  .menu-open .site-header { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; transform: none !important; background: #fff; box-shadow: none; }
+  .nav { height: 100vh; height: 100dvh; overflow-y: auto; z-index: 55; }
+  .menu-open .burger, .menu-open .logo { z-index: 60; }
+}
