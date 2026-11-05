@@ -12,8 +12,7 @@ After editing, rebuild the root HTML files:
     python3 build.py
 
 ## Deploy
-Upload the repository content (except `src/`, `docs/`, `build.py`) to the web root of alpen-health.com.
-The server needs PHP `mail()` for `contact.php` (enquiries go to info@alpen-health.com).
+The site is served by Railway (www.alpen-health.com). `contact.php` is not run there: it lives on the Ooredoo cPanel hosting (public_html) and the form posts to https://alpen-health.com/contact.php (PHP 7.0, `mail()`; enquiries go to info@alpen-health.com).
 
 ## Brand
 Navy #082B4C · Cyan #59C4D1 · Ice #CDEBF0 · Coral #E54B4B · Off-white #F7F9FA · Graphite #17212B
