@@ -174,7 +174,7 @@
         '<h3>' + t('Thank you', 'Merci') + (first ? ', ' + first.replace(/[<>&"]/g, '') : '') + '.</h3>' +
         '<p>' + t('Your enquiry has been received. A member of our team will reply from info@alpen-health.com to arrange a first conversation.',
           'Votre demande est bien arrivée. Un membre de notre équipe vous répondra depuis info@alpen-health.com pour convenir d’un premier échange.') + '</p>' +
-        '<div class="btns"><a class="btn btn--ghost" href="index.html">' + t('Back to Home', 'Retour à l’accueil') + '</a></div>'
+        '<div class="btns"><a class="btn btn--ghost" href="./">' + t('Back to Home', 'Retour à l’accueil') + '</a></div>'
       : '<div class="form-done__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg></div>' +
         '<h3>' + t('One last step.', 'Encore une étape.') + '</h3>' +
         '<p>' + t('Our online form could not send your message from here. Your enquiry is ready: open it in your email application and press send.',

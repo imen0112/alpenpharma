@@ -88,7 +88,9 @@ MAP_FR = {">ALGERIA<": ">ALGÉRIE<", ">LIBYA<": ">LIBYE<", ">TUNISIA<": ">TUNISI
 # Sends first-time visitors on English pages to French when their browser language is French
 # or their time zone is in a French-speaking country (Tunisia, Algeria, Morocco, France, ...).
 # A choice made with the language switch (stored as alpen-lang) always wins.
-DETECT = """<script>(function(){var L='{lang}',K='alpen-lang',p=null;try{p=localStorage.getItem(K)}catch(e){}
+DETECT = """<script>(function(){var P=location.pathname;if(P==='/fr'){location.replace('/fr/'+location.search+location.hash);return}
+if(/\\.html$/.test(P)&&history.replaceState)history.replaceState(null,'',P.replace(/(index)?\\.html$/,'')+location.search+location.hash);
+var L='{lang}',K='alpen-lang',p=null;try{p=localStorage.getItem(K)}catch(e){}
 if(!p&&L==='en'){var n=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase(),z='';try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
 if(n.indexOf('fr')===0||/^(Africa\\/(Tunis|Algiers|Casablanca|Dakar|Abidjan|Bamako|Niamey|Ouagadougou|Lome|Porto-Novo|Conakry|Nouakchott|Douala|Libreville|Brazzaville|Kinshasa|Bangui|Ndjamena)|Europe\\/(Paris|Brussels|Luxembourg|Monaco)|Indian\\/Reunion|America\\/(Martinique|Guadeloupe|Cayenne))$/.test(z))p='fr'}
 if(p&&p!==L)location.replace('{alt_path}'+location.search+location.hash)})();</script>"""
@@ -193,7 +195,7 @@ FOOT = """</main>
   </div>
 </footer>
 <button class="to-top" type="button" aria-label="{t[top]}"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5"/></svg></button>
-<script src="assets/js/site.js?v=7" defer></script>
+<script src="assets/js/site.js?v=8" defer></script>
 </body>
 </html>
 """
@@ -276,9 +278,19 @@ def up_one(html):
     return re.sub(r'(?<=["\s,])(assets/|favicon|apple-touch-icon)', r'../\1', html)
 
 
+def slug(name):
+    """Clean URL for a page file: about.html -> about, index.html -> '' (the server maps both)."""
+    return "" if name == "index.html" else name[:-5]
+
+
 def page_url(lang, name):
-    path = "" if name == "index.html" else name
-    return SITE + ("/fr/" if lang == "fr" else "/") + path
+    return SITE + ("/fr/" if lang == "fr" else "/") + slug(name)
+
+
+def clean_links(html):
+    """Drop .html from internal links: about.html#x -> about#x, index.html -> ./"""
+    html = re.sub(r'href="index\.html"', 'href="./"', html)
+    return re.sub(r'href="([a-z0-9-]+)\.html([#?][^"]*)?"', lambda m: f'href="{m.group(1)}{m.group(2) or ""}"', html)
 
 
 def build_lang(lang):
@@ -300,8 +312,8 @@ def build_lang(lang):
         other = "fr" if lang == "en" else "en"
         alt_path = url_fr if lang == "en" else url_en
         alt_path = alt_path[len(SITE):]
-        other_href = ("fr/" if lang == "en" else "../") + name
-        links = {lang: (name, ' aria-current="true"'), other: (other_href, "")}
+        other_href = ("fr/" if lang == "en" else "../") + slug(name)
+        links = {lang: (slug(name) or "./", ' aria-current="true"'), other: (other_href, "")}
         switch = '<span aria-hidden="true">/</span>'.join(
             f'<a href="{links[code][0]}" hreflang="{code}" lang="{code}" data-lang="{code}"{links[code][1]}>{code.upper()}</a>'
             for code in ("en", "fr")
@@ -330,6 +342,7 @@ def build_lang(lang):
             for a, b in MAP_FR.items():
                 content = content.replace(a, b)
         html += responsive(content) + FOOT.format(logo=LOGO, t=t)
+        html = clean_links(html)
         if lang == "fr":
             html = up_one(html)
         (out_dir / name).write_text(html, encoding="utf-8")

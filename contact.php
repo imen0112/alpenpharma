@@ -36,13 +36,13 @@ function reply($ok, $error = '')
         http_response_code($ok ? 200 : 400);
         echo json_encode($ok ? ['ok' => true] : ['ok' => false, 'error' => $error]);
     } else {
-        header('Location: ' . SITE . ($fr ? '/fr' : '') . '/contact.html?sent=' . ($ok ? '1' : '0'));
+        header('Location: ' . SITE . ($fr ? '/fr' : '') . '/contact?sent=' . ($ok ? '1' : '0'));
     }
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ' . SITE . '/contact.html');
+    header('Location: ' . SITE . '/contact');
     exit;
 }
 
