@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.alpen-health.com/about.html</loc><lastmod>2026-10-31</lastmod></url>
-  <url><loc>https://www.alpen-health.com/contact.html</loc><lastmod>2026-10-31</lastmod></url>
-  <url><loc>https://www.alpen-health.com/</loc><lastmod>2026-10-31</lastmod></url>
-  <url><loc>https://www.alpen-health.com/legal.html</loc><lastmod>2026-10-31</lastmod></url>
-  <url><loc>https://www.alpen-health.com/markets.html</loc><lastmod>2026-10-31</lastmod></url>
-  <url><loc>https://www.alpen-health.com/partnerships.html</loc><lastmod>2026-10-31</lastmod></url>
-  <url><loc>https://www.alpen-health.com/privacy.html</loc><lastmod>2026-10-31</lastmod></url>
-  <url><loc>https://www.alpen-health.com/therapeutic-areas.html</loc><lastmod>2026-10-31</lastmod></url>
-  <url><loc>https://www.alpen-health.com/what-we-do.html</loc><lastmod>2026-10-31</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://www.alpen-health.com/about.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/about.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/about.html"/></url>
+  <url><loc>https://www.alpen-health.com/fr/about.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/about.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/about.html"/></url>
+  <url><loc>https://www.alpen-health.com/contact.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/contact.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/contact.html"/></url>
+  <url><loc>https://www.alpen-health.com/fr/contact.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/contact.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/contact.html"/></url>
+  <url><loc>https://www.alpen-health.com/</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/"/></url>
+  <url><loc>https://www.alpen-health.com/fr/</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/"/></url>
+  <url><loc>https://www.alpen-health.com/legal.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/legal.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/legal.html"/></url>
+  <url><loc>https://www.alpen-health.com/fr/legal.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/legal.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/legal.html"/></url>
+  <url><loc>https://www.alpen-health.com/markets.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/markets.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/markets.html"/></url>
+  <url><loc>https://www.alpen-health.com/fr/markets.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/markets.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/markets.html"/></url>
+  <url><loc>https://www.alpen-health.com/partnerships.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/partnerships.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/partnerships.html"/></url>
+  <url><loc>https://www.alpen-health.com/fr/partnerships.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/partnerships.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/partnerships.html"/></url>
+  <url><loc>https://www.alpen-health.com/privacy.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/privacy.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/privacy.html"/></url>
+  <url><loc>https://www.alpen-health.com/fr/privacy.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/privacy.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/privacy.html"/></url>
+  <url><loc>https://www.alpen-health.com/therapeutic-areas.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/therapeutic-areas.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/therapeutic-areas.html"/></url>
+  <url><loc>https://www.alpen-health.com/fr/therapeutic-areas.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/therapeutic-areas.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/therapeutic-areas.html"/></url>
+  <url><loc>https://www.alpen-health.com/what-we-do.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/what-we-do.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/what-we-do.html"/></url>
+  <url><loc>https://www.alpen-health.com/fr/what-we-do.html</loc><lastmod>2026-11-09</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.alpen-health.com/what-we-do.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://www.alpen-health.com/fr/what-we-do.html"/></url>
 </urlset>

@@ -6,7 +6,7 @@ Static multi-page site (HTML/CSS/JS) + `contact.php` for the partnership enquiry
 Home · About · What We Do · Therapeutic Areas · Markets · Partnerships · Contact · Privacy · Legal · 404
 
 ## Editing
-Page content lives in `src/pages/*.html`; the shared header/footer/logo are in `build.py`.
+Page content lives in `src/pages/*.html` (English) and `src/pages-fr/*.html` (French, built into `fr/`); the shared header/footer/logo and their translations are in `build.py`.
 After editing, rebuild the root HTML files:
 
     python3 build.py

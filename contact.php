@@ -18,18 +18,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
+$fr = (isset($_POST['lang']) ? $_POST['lang'] : '') === 'fr';
 $accept = isset($_SERVER['HTTP_ACCEPT']) ? $_SERVER['HTTP_ACCEPT'] : '';
 $wantsJson = strpos($accept, 'application/json') !== false;
 
+function t($english, $french)
+{
+    global $fr;
+    return $fr ? $french : $english;
+}
+
 function reply($ok, $error = '')
 {
-    global $wantsJson;
+    global $wantsJson, $fr;
     if ($wantsJson) {
         header('Content-Type: application/json');
         http_response_code($ok ? 200 : 400);
         echo json_encode($ok ? ['ok' => true] : ['ok' => false, 'error' => $error]);
     } else {
-        header('Location: ' . SITE . '/contact.html?sent=' . ($ok ? '1' : '0'));
+        header('Location: ' . SITE . ($fr ? '/fr' : '') . '/contact.html?sent=' . ($ok ? '1' : '0'));
     }
     exit;
 }
@@ -64,17 +71,18 @@ $data = [
     'Market'    => field('market'),
     'Therapeutic area' => field('area'),
     'Portfolio / opportunity' => field('portfolio'),
+    'Site language' => $fr ? 'French' : 'English',
 ];
 $message = cut(trim((string)(isset($_POST['message']) ? $_POST['message'] : '')), 5000);
 
 if ($data['Company'] === '' || $data['Name'] === '' || $data['Market'] === '' || $message === '') {
-    reply(false, 'Please complete all required fields.');
+    reply(false, t('Please complete all required fields.', 'Merci de remplir tous les champs obligatoires.'));
 }
 if (!filter_var($data['Email'], FILTER_VALIDATE_EMAIL)) {
-    reply(false, 'Please enter a valid email address.');
+    reply(false, t('Please enter a valid email address.', 'Merci d’indiquer une adresse e-mail valide.'));
 }
 if ((isset($_POST['consent']) ? $_POST['consent'] : '') !== 'yes') {
-    reply(false, 'Please accept the privacy notice.');
+    reply(false, t('Please accept the privacy notice.', 'Merci d’accepter la politique de confidentialité.'));
 }
 
 $body = "New partnership enquiry from alpen-health.com\n\n";
@@ -93,4 +101,4 @@ $headers = [
 ];
 
 $sent = mail(RECIPIENT, $subject, $body, implode("\r\n", $headers), '-f' . SENDER);
-reply($sent, $sent ? '' : 'The message could not be sent. Please write to info@alpen-health.com.');
+reply($sent, $sent ? '' : t('The message could not be sent. Please write to info@alpen-health.com.', 'Le message n’a pas pu être envoyé. Écrivez-nous à info@alpen-health.com.'));

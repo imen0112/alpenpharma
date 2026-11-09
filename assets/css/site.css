@@ -120,7 +120,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 88px; transition: height .35s var(--ease); }
 .logo { display: block; width: 168px; color: var(--navy); }
 .logo svg { width: 100%; height: auto; display: block; }
-.nav { display: flex; align-items: center; gap: 34px; }
+.nav { display: flex; align-items: center; gap: 34px; margin-left: auto; }
+.nav a { white-space: nowrap; }
+@media (max-width: 1280px) { .nav { gap: 24px; } .lang-switch { margin-left: 18px; } }
+.lang-switch { display: flex; align-items: center; gap: 4px; margin-left: 26px; position: relative; z-index: 60; font-family: var(--f-head); font-size: 12px; font-weight: 600; letter-spacing: .08em; color: var(--navy); }
+.lang-switch a { color: inherit; opacity: .5; padding: 8px 3px; transition: opacity .2s; }
+.lang-switch a:hover, .lang-switch a[aria-current="true"] { opacity: 1; }
+.lang-switch span { opacity: .35; }
+.is-overlay .site-header:not(.scrolled) .lang-switch { color: #fff; }
+.menu-open .lang-switch { color: var(--navy) !important; }
 .nav a:not(.btn) {
   font-family: var(--f-head); font-size: 13.5px; font-weight: 500; color: var(--navy);
   position: relative; padding: 6px 0;
@@ -150,6 +158,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 @media (max-width: 1020px) {
   .burger { display: block; }
+  .lang-switch { margin-left: auto; margin-right: 10px; }
   .nav {
     position: fixed; inset: 0; background: #fff; flex-direction: column; align-items: flex-start; justify-content: center;
     gap: 6px; padding: 100px var(--gutter) 40px; opacity: 0; visibility: hidden; transition: opacity .3s var(--ease), visibility .3s;

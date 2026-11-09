@@ -3,6 +3,11 @@
   var body = document.body;
   doc.classList.add('js');
 
+  // Language switch: remember the visitor's choice so the automatic redirect never overrides it
+  document.querySelectorAll('.lang-switch a').forEach(function (a) {
+    a.addEventListener('click', function () { try { localStorage.setItem('alpen-lang', a.getAttribute('data-lang')); } catch (e) {} });
+  });
+
   // Header: solid on scroll, hide on scroll down
   var header = document.querySelector('.site-header');
   var toTop = document.querySelector('.to-top');
@@ -85,6 +90,8 @@
   // Contact form
   var form = document.querySelector('#enquiry');
   if (!form) return;
+  var FR = doc.lang === 'fr';
+  function t(en, fr) { return FR ? fr : en; }
 
   var AREAS = {
     'immunology': 'Immunology, Plasma & Rare Diseases',
@@ -100,7 +107,7 @@
   function preselect(select, value) {
     if (!select || !value) return;
     for (var i = 0; i < select.options.length; i++) {
-      if (select.options[i].text === value) { select.selectedIndex = i; return; }
+      if (select.options[i].value === value || select.options[i].text === value) { select.selectedIndex = i; return; }
     }
   }
   preselect(form.elements.area, AREAS[params.get('area')]);
@@ -108,8 +115,8 @@
   if (m) preselect(form.elements.market, m.charAt(0).toUpperCase() + m.slice(1));
 
   var MESSAGES = {
-    valueMissing: 'This field is required.',
-    typeMismatch: 'Please enter a valid email address.'
+    valueMissing: t('This field is required.', 'Ce champ est obligatoire.'),
+    typeMismatch: t('Please enter a valid email address.', 'Merci d’indiquer une adresse e-mail valide.')
   };
   function errorFor(el) {
     var id = el.id + '-err';
@@ -141,20 +148,20 @@
   function summary() {
     var f = form.elements;
     return [
-      'Company: ' + f.company.value,
-      'Name: ' + f.name.value,
-      'Position: ' + f.position.value,
-      'Email: ' + f.email.value,
-      'Market: ' + f.market.value,
-      'Therapeutic area: ' + f.area.value,
-      'Portfolio / opportunity: ' + f.portfolio.value,
+      t('Company: ', 'Société : ') + f.company.value,
+      t('Name: ', 'Nom : ') + f.name.value,
+      t('Position: ', 'Fonction : ') + f.position.value,
+      t('Email: ', 'E-mail : ') + f.email.value,
+      t('Market: ', 'Marché : ') + f.market.value,
+      t('Therapeutic area: ', 'Aire thérapeutique : ') + f.area.value,
+      t('Portfolio / opportunity: ', 'Portefeuille / opportunité : ') + f.portfolio.value,
       '',
       f.message.value
     ].join('\n');
   }
   function mailtoHref() {
     return 'mailto:info@alpen-health.com?subject=' +
-      encodeURIComponent('Partnership enquiry: ' + form.elements.company.value) +
+      encodeURIComponent(t('Partnership enquiry: ', 'Demande de partenariat : ') + form.elements.company.value) +
       '&body=' + encodeURIComponent(summary());
   }
   function done(sent) {
@@ -164,13 +171,15 @@
     box.setAttribute('tabindex', '-1');
     box.innerHTML = sent
       ? '<div class="form-done__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>' +
-        '<h3>Thank you' + (first ? ', ' + first.replace(/[<>&"]/g, '') : '') + '.</h3>' +
-        '<p>Your enquiry has been received. A member of our team will reply from info@alpen-health.com to arrange a first conversation.</p>' +
-        '<div class="btns"><a class="btn btn--ghost" href="index.html">Back to Home</a></div>'
+        '<h3>' + t('Thank you', 'Merci') + (first ? ', ' + first.replace(/[<>&"]/g, '') : '') + '.</h3>' +
+        '<p>' + t('Your enquiry has been received. A member of our team will reply from info@alpen-health.com to arrange a first conversation.',
+          'Votre demande est bien arrivée. Un membre de notre équipe vous répondra depuis info@alpen-health.com pour convenir d’un premier échange.') + '</p>' +
+        '<div class="btns"><a class="btn btn--ghost" href="index.html">' + t('Back to Home', 'Retour à l’accueil') + '</a></div>'
       : '<div class="form-done__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg></div>' +
-        '<h3>One last step.</h3>' +
-        '<p>Our online form could not send your message from here. Your enquiry is ready: open it in your email application and press send.</p>' +
-        '<div class="btns"><a class="btn" href="' + mailtoHref() + '">Send by email</a><button class="btn btn--ghost" type="button">Edit enquiry</button></div>';
+        '<h3>' + t('One last step.', 'Encore une étape.') + '</h3>' +
+        '<p>' + t('Our online form could not send your message from here. Your enquiry is ready: open it in your email application and press send.',
+          'Le formulaire n’a pas pu envoyer votre message. Votre demande est prête : ouvrez-la dans votre messagerie et cliquez sur Envoyer.') + '</p>' +
+        '<div class="btns"><a class="btn" href="' + mailtoHref() + '">' + t('Send by email', 'Envoyer par e-mail') + '</a><button class="btn btn--ghost" type="button">' + t('Edit enquiry', 'Modifier la demande') + '</button></div>';
     form.hidden = true;
     form.parentNode.insertBefore(box, form.nextSibling);
     box.focus();
@@ -187,17 +196,17 @@
     fields.forEach(function (el) { if (!check(el) && !firstBad) firstBad = el; });
     var consent = form.elements.consent;
     if (!consent.checked) {
-      errorFor(consent).textContent = 'Please confirm you agree to the privacy notice.';
+      errorFor(consent).textContent = t('Please confirm you agree to the privacy notice.', 'Merci de confirmer que vous acceptez la politique de confidentialité.');
       if (!firstBad) firstBad = consent;
     } else if (document.getElementById(consent.id + '-err')) {
       errorFor(consent).textContent = '';
     }
-    if (firstBad) { firstBad.focus(); status.textContent = 'Please check the highlighted fields.'; status.className = 'form-status err'; return; }
+    if (firstBad) { firstBad.focus(); status.textContent = t('Please check the highlighted fields.', 'Merci de vérifier les champs signalés.'); status.className = 'form-status err'; return; }
 
     if (!window.fetch) { form.submit(); return; }
     var btn = form.querySelector('button[type="submit"]');
     btn.disabled = true;
-    status.textContent = 'Sending…';
+    status.textContent = t('Sending…', 'Envoi en cours…');
     status.className = 'form-status';
     fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
       .then(function (r) {
@@ -207,7 +216,7 @@
       })
       .then(function (res) {
         if (res.ok) { done(true); return; }
-        status.textContent = res.j.error || 'Something went wrong. Please try again.';
+        status.textContent = res.j.error || t('Something went wrong. Please try again.', 'Une erreur s’est produite. Merci de réessayer.');
         status.className = 'form-status err';
       })
       .catch(function () { status.textContent = ''; done(false); })
@@ -226,7 +235,7 @@
     var hint = document.createElement('div');
     hint.className = 'snap-hint';
     hint.setAttribute('aria-hidden', 'true');
-    hint.innerHTML = '<span class="snap-count"></span><span>Swipe &rarr;</span>';
+    hint.innerHTML = '<span class="snap-count"></span><span>' + (document.documentElement.lang === 'fr' ? 'Faites glisser' : 'Swipe') + ' &rarr;</span>';
     row.parentNode.insertBefore(hint, row.nextSibling);
     row.parentNode.insertBefore(bar, row.nextSibling);
     var thumb = bar.firstChild, count = hint.firstChild;
