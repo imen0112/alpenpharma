@@ -47,7 +47,7 @@ NAV = {
     "fr": [
         ("about", "about.html", "À propos"),
         ("what-we-do", "what-we-do.html", "Nos savoir-faire"),
-        ("therapeutic-areas", "therapeutic-areas.html", "Domaines thérapeutiques"),
+        ("therapeutic-areas", "therapeutic-areas.html", "Nos domaines"),
         ("markets", "markets.html", "Marchés"),
         ("partnerships", "partnerships.html", "Partenariats"),
     ],
@@ -75,7 +75,7 @@ T = {
         "tag": "Science. Accès. Croissance.",
         "intro": "Partenaire stratégique des laboratoires et des entreprises de santé qui se développent en Afrique du Nord.",
         "company": "Entreprise", "about": "À propos d’Alpen Health", "values": "Nos valeurs", "group": "Groupe KETATA",
-        "partnerships": "Partenariats", "expertise": "Expertise", "what": "Nos savoir-faire", "areas": "Domaines thérapeutiques",
+        "partnerships": "Partenariats", "expertise": "Expertise", "what": "Nos savoir-faire", "areas": "Nos domaines",
         "markets": "Marchés", "enquiry": "Demande de partenariat", "address": "Centre Urbain Nord<br>Ariana, Tunisie",
         "copy": "&copy; 2026 Alpen Health. Membre du groupe KETATA.", "legal_label": "Informations légales",
         "privacy": "Politique de confidentialité", "legal": "Mentions légales", "top": "Revenir en haut", "home": "Accueil",
