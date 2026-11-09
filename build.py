@@ -46,8 +46,8 @@ NAV = {
     ],
     "fr": [
         ("about", "about.html", "À propos"),
-        ("what-we-do", "what-we-do.html", "Nos expertises"),
-        ("therapeutic-areas", "therapeutic-areas.html", "Aires thérapeutiques"),
+        ("what-we-do", "what-we-do.html", "Notre métier"),
+        ("therapeutic-areas", "therapeutic-areas.html", "Domaines thérapeutiques"),
         ("markets", "markets.html", "Marchés"),
         ("partnerships", "partnerships.html", "Partenariats"),
     ],
@@ -75,7 +75,7 @@ T = {
         "tag": "Science. Accès. Croissance.",
         "intro": "Partenaire stratégique des laboratoires et des entreprises de santé qui se développent en Afrique du Nord.",
         "company": "Entreprise", "about": "À propos d’Alpen Health", "values": "Nos valeurs", "group": "Groupe KETATA",
-        "partnerships": "Partenariats", "expertise": "Expertise", "what": "Nos expertises", "areas": "Aires thérapeutiques",
+        "partnerships": "Partenariats", "expertise": "Expertise", "what": "Notre métier", "areas": "Domaines thérapeutiques",
         "markets": "Marchés", "enquiry": "Demande de partenariat", "address": "Centre Urbain Nord<br>Ariana, Tunisie",
         "copy": "&copy; 2026 Alpen Health. Membre du groupe KETATA.", "legal_label": "Informations légales",
         "privacy": "Politique de confidentialité", "legal": "Mentions légales", "top": "Revenir en haut", "home": "Accueil",
@@ -195,7 +195,7 @@ FOOT = """</main>
   </div>
 </footer>
 <button class="to-top" type="button" aria-label="{t[top]}"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5"/></svg></button>
-<script src="assets/js/site.js?v=8" defer></script>
+<script src="assets/js/site.js?v=9" defer></script>
 </body>
 </html>
 """

@@ -153,7 +153,7 @@
       t('Position: ', 'Fonction : ') + f.position.value,
       t('Email: ', 'E-mail : ') + f.email.value,
       t('Market: ', 'Marché : ') + f.market.value,
-      t('Therapeutic area: ', 'Aire thérapeutique : ') + f.area.value,
+      t('Therapeutic area: ', 'Domaine thérapeutique : ') + f.area.value,
       t('Portfolio / opportunity: ', 'Portefeuille / opportunité : ') + f.portfolio.value,
       '',
       f.message.value
